@@ -51,12 +51,12 @@ interface Theme {
 }
 
 type RootStackParamList = {
-  Summary: undefined;
-  Budget: undefined;
-  Goals: undefined;
+  insight: undefined;
+  budget: undefined;
+  saving: undefined;
 };
 
-const HomeScreen: React.FC = () => {
+const Home: React.FC = () => {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [goals, setGoals] = useState<Goal[]>([]);
@@ -264,7 +264,7 @@ const HomeScreen: React.FC = () => {
               Dashboard
             </Text>
             <TouchableOpacity
-              onPress={() => navigation.navigate("Summary")}
+              onPress={() => navigation.navigate("insight")}
               style={{
                 padding: 12,
                 backgroundColor: theme.cardColor,
@@ -452,7 +452,7 @@ const HomeScreen: React.FC = () => {
                 Weekly Spending
               </Text>
               <TouchableOpacity
-                onPress={() => navigation.navigate("Budget")}
+                onPress={() => navigation.navigate("budget")}
                 style={{ padding: 8 }}
               >
                 <Feather
@@ -531,7 +531,7 @@ const HomeScreen: React.FC = () => {
                 Category Breakdown
               </Text>
               <TouchableOpacity
-                onPress={() => navigation.navigate("Summary")}
+                onPress={() => navigation.navigate("insight")}
                 style={{ padding: 8 }}
               >
                 <Feather
@@ -596,10 +596,10 @@ const HomeScreen: React.FC = () => {
                   color: theme.textColor,
                 }}
               >
-                Savings Goals
+                Savings
               </Text>
               <TouchableOpacity
-                onPress={() => navigation.navigate("Goals")}
+                onPress={() => navigation.navigate("saving")}
                 style={{ padding: 8 }}
               >
                 <Feather
@@ -613,7 +613,7 @@ const HomeScreen: React.FC = () => {
               goalProgress.slice(0, 3).map((goal) => (
                 <TouchableOpacity
                   key={goal.id}
-                  onPress={() => navigation.navigate("Goals")}
+                  onPress={() => navigation.navigate("saving")}
                   style={{
                     backgroundColor: theme.backgroundColor,
                     borderRadius: 16,
@@ -719,7 +719,7 @@ const HomeScreen: React.FC = () => {
                 .map((transaction) => (
                   <TouchableOpacity
                     key={transaction.id}
-                    onPress={() => navigation.navigate("Budget")}
+                    onPress={() => navigation.navigate("budget")}
                     style={{
                       flexDirection: "row",
                       justifyContent: "space-between",
@@ -791,7 +791,7 @@ const HomeScreen: React.FC = () => {
           shadowRadius: 8,
           elevation: 8,
         }}
-        onPress={() => navigation.navigate("Budget")}
+        onPress={() => navigation.navigate("budget")}
       >
         <Feather name="plus" size={28} color="#FFFFFF" />
       </TouchableOpacity>
@@ -801,4 +801,4 @@ const HomeScreen: React.FC = () => {
   );
 };
 
-export default HomeScreen;
+export default Home;

@@ -76,12 +76,12 @@ const TabsLayout = () => {
       }}
     >
       <Tabs.Screen
-        name="Home"
+        name="home"
         options={{
           title: "Home",
           tabBarIcon: ({ color, focused }) => (
             <TabIcon
-              icon={icons.House}
+              icon={icons.home}
               name="Home"
               color={color}
               focused={focused}
@@ -90,12 +90,12 @@ const TabsLayout = () => {
         }}
       />
       <Tabs.Screen
-        name="Budget"
+        name="budget"
         options={{
           title: "Budget",
           tabBarIcon: ({ color, focused }) => (
             <TabIcon
-              icon={icons.HandCoins}
+              icon={icons.budget}
               name="Budget"
               color={color}
               focused={focused}
@@ -104,12 +104,12 @@ const TabsLayout = () => {
         }}
       />
       <Tabs.Screen
-        name="Saving"
+        name="saving"
         options={{
           title: "Saving",
           tabBarIcon: ({ color, focused }) => (
             <TabIcon
-              icon={icons.Landmark}
+              icon={icons.saving}
               name="Saving"
               color={color}
               focused={focused}
@@ -118,12 +118,12 @@ const TabsLayout = () => {
         }}
       />
       <Tabs.Screen
-        name="Insight"
+        name="insight"
         options={{
           title: "Insight",
           tabBarIcon: ({ color, focused }) => (
             <TabIcon
-              icon={icons.ChartNoAxesColumn}
+              icon={icons.insight}
               name="Insight"
               color={color}
               focused={focused}
@@ -132,12 +132,12 @@ const TabsLayout = () => {
         }}
       />
       <Tabs.Screen
-        name="Setting"
+        name="setting"
         options={{
           title: "Setting",
           tabBarIcon: ({ color, focused }) => (
             <TabIcon
-              icon={icons.Settings}
+              icon={icons.profile}
               name="Setting"
               color={color}
               focused={focused}

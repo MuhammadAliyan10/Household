@@ -3,33 +3,44 @@
     "name": "Household",
     "slug": "Household",
     "version": "1.0.0",
+    "scheme": "household",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-
+    "entryPoint": "index.tsx",
+    "plugins": [
+      "expo-router"
+    ],
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#0F172A"
     },
-
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.yourname.household"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#0F172A"
       },
-      "package": "com.yourname.budgetbuddy"
+      "package": "com.yourname.household"
     },
     "web": {
       "favicon": "./assets/favicon.png",
       "bundler": "metro"
     },
-    "entryPoint": "node_modules/expo/AppEntry.js"
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "17565b4b-5a33-4302-8c31-098ac47b2ce0"
+      }
+    }
   }
 }

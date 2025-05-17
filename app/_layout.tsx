@@ -1,7 +1,6 @@
 import { useFonts } from "expo-font";
 import { SplashScreen, Stack } from "expo-router";
-import { useEffect, useState } from "react";
-import { ActivityIndicator, Animated, Text, View } from "react-native";
+import { useEffect } from "react";
 import "../global.css";
 
 SplashScreen.preventAutoHideAsync();
@@ -19,67 +18,22 @@ const RootLayout = () => {
     "Poppins-Thin": require("../assets/fonts/Poppins-Thin.ttf"),
   });
 
-  const [isSplashVisible, setIsSplashVisible] = useState(true);
-  const fadeAnim = useState(new Animated.Value(0))[0];
-  const scaleAnim = useState(new Animated.Value(0.8))[0];
-
   useEffect(() => {
     if (fontsLoaded && !error) {
-      Animated.parallel([
-        Animated.timing(fadeAnim, {
-          toValue: 1,
-          duration: 800,
-          useNativeDriver: true,
-        }),
-        Animated.spring(scaleAnim, {
-          toValue: 1,
-          friction: 5,
-          tension: 60,
-          useNativeDriver: true,
-        }),
-      ]).start();
-
-      setTimeout(() => {
-        SplashScreen.hideAsync();
-        setIsSplashVisible(false);
-      }, 2000);
+      SplashScreen.hideAsync();
     }
   }, [fontsLoaded, error]);
 
-  if (!fontsLoaded || isSplashVisible) {
-    return (
-      <View
-        style={{
-          flex: 1,
-          backgroundColor: "#0F172A",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Animated.View
-          style={{
-            opacity: fadeAnim,
-            transform: [{ scale: scaleAnim }],
-            alignItems: "center",
-          }}
-        >
-          <ActivityIndicator size="large" color="#8B5CF6" />
-          <Text
-            style={{
-              marginTop: 16,
-              fontSize: 18,
-              fontWeight: "600",
-              color: "#F1F5F9",
-            }}
-          >
-            Budget App
-          </Text>
-        </Animated.View>
-      </View>
-    );
+  if (!fontsLoaded) {
+    return null;
   }
 
-  return <Stack screenOptions={{ headerShown: false }} />;
+  return (
+    <Stack>
+      <Stack.Screen name="index" options={{ headerShown: false }} />
+      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+    </Stack>
+  );
 };
 
 export default RootLayout;
